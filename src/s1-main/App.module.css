@@ -1,11 +1,20 @@
 .App {
     --header_height: 60px;
+    padding-top: 131px;
 }
 
 .hw {
-
+    padding: 24px 70px;
+    border-top: 1px solid rgba(0, 0, 0, 0.2);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 .hwTitle {
-
+    padding: 0px 70px;
+    font-family: Montserrat;
+    font-weight: 600;
+    font-style: SemiBold;
+    font-size: 22px;
+    line-height: 100%;
+    margin-bottom: 10px;
 }
