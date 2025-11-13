@@ -18,26 +18,26 @@
 }
 
 .text {
-    display: inline-block; /* чтобы блок вел себя как текст */
-    text-align: right; /* прижимает текст вправо */
+    display: inline-block; /* so the block behaves like inline text */
+    text-align: right; /* pushes the text to the right */
     color: white;
     background: rgba(0, 102, 204, 1);
     padding: 10px 15px;
-    border-radius: 10px 10px 0px 10px; /* нам не нужен бордер на правом нижнем углу */
-    position: relative; /* для позиционирования after относительно этого блока */
+    border-radius: 10px 10px 0px 10px; /* we don’t need a rounded corner on the bottom-right */
+    position: relative; /* needed so :after can be positioned relative to this block */
     box-shadow: 0px 2px 0px 0px rgba(29, 33, 38, 0.08);
 }
 
 .text:after {
-    content: ''; /* без какого-либо контента псевдоэлемент просто не отображается, поэтому создаем пустой */
-    position: absolute; /* думаю все понятно */
-    right: -10px; /* смещение от правого края родителя на 10px вправо. то есть на весь размер за его пределы */
-    border: 10px solid transparent; /* у нас нет высоты и ширины. тут мы вокруг "ничего" создаем толстый бордер.
-    Теперь каждая сторона этого бордера представляет собой не линию, а пирамиду */
-    border-left-color: rgba(0, 102, 204, 1); /* красим левую сторону бордера и получаем треугольник */
-    border-right: 0px; /* отрубаем правую сторону от центра */
-    border-bottom: 0px; /* отрубаем нижнюю сторону от центра */
-    bottom: 0px; /* прижимаем получившийся гол к низу чтобы он не уезжал при увеличении высоты блока */
+    content: ''; /* without content a pseudo-element won’t render, so we create an empty one */
+    position: absolute; /* pretty self-explanatory */
+    right: -10px; /* move it 10px to the right from the parent’s edge—basically outside the bubble */
+    border: 10px solid transparent; /* since we have no width/height, we draw a thick border around “nothing”
+    and each side of that border becomes a little pyramid */
+    border-left-color: rgba(0, 102, 204, 1); /* color the left side of the border to form the triangle */
+    border-right: 0px; /* cut off the right side */
+    border-bottom: 0px; /* cut off the bottom side */
+    bottom: 0px; /* pin the little tail to the bottom so it doesn’t shift when the bubble gets taller */
     box-shadow: 0px 2px 0px 0px rgba(29, 33, 38, 0.08);
 }
 
