@@ -7,7 +7,7 @@ type GreetingContainerPropsType = {
     addUserCallback: (name: UserType['name'])=>void 
 }
 
-type ErrorType = (error: boolean)=>void;
+type ErrorType = (error: string)=>void;
 type NameType = (name: UserType['name'])=>void;
 
 export const pureAddUser = (
@@ -18,11 +18,11 @@ export const pureAddUser = (
     ) => {
         const trimmedName = name.trim();
     if(!trimmedName.length) {
-        setError(true)
+        setError("Ошибка! Введите имя!")
     } else {
         addUserCallback(trimmedName);
         setName('')
-        setError(false)
+        setError('')
     }
     // если имя пустое - показать ошибку, иначе - добавить юзера и очистить инпут
 }
@@ -30,12 +30,12 @@ export const pureAddUser = (
 export const pureOnBlur = (name: UserType['name'], setError: ErrorType) => {
             const trimmedName = name.trim();
     if(!trimmedName.length) {
-        setError(true)
+        setError("Ошибка! Введите имя!")
     } 
     // если имя пустое - показать ошибку
 }
 
-export const pureOnEnter = (e: KeyboardEvent, addUser: ()=>void) => { // если нажата кнопка Enter - добавить
+export const pureOnEnter = (e: KeyboardEvent<HTMLInputElement>, addUser: ()=>void) => { // если нажата кнопка Enter - добавить
     if(e.key === 'Enter') addUser();
 }
 
@@ -49,12 +49,12 @@ const GreetingContainer: React.FC<GreetingContainerPropsType> = ({
 }) => {
     // деструктуризация пропсов
     const [name, setName] = useState<UserType['name']>('') // need to fix any
-    const [error, setError] = useState<Boolean>(false) // need to fix any
+    const [error, setError] = useState<string>('') // need to fix any
 
     const setNameCallback = (e: ChangeEvent<HTMLInputElement>) => { // need to fix any
         setName(e.currentTarget.value) // need to fix
 
-        error && setError(false)
+        error && setError('')
     }
     const addUser = () => {
         pureAddUser(name, setError, setName, addUserCallback)
@@ -64,7 +64,7 @@ const GreetingContainer: React.FC<GreetingContainerPropsType> = ({
         pureOnBlur(name, setError)
     }
 
-    const onEnter = (e: KeyboardEvent) => {
+    const onEnter = (e: KeyboardEvent<HTMLInputElement>) => {
         pureOnEnter(e, addUser)
     }
 
