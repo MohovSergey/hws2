@@ -1,35 +1,93 @@
+/* reset */
+input, button {
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  box-sizing: border-box;
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+}
+
+button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  background-color: rgb(81, 136, 191) !important;
+}
+
+/* main */
 .greetingForm {
+  height: 372px;
+  width: 100vw;
 }
 
 .inputAndButtonContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  height: 36px;
+  width: 462px;
 }
 
 .error {
+  color: red;
+  margin-top: 27px;
 }
 
 .input {
+  width: 372px;
+  height: 36px;
+  border-radius: 3px;
+  border: 1px solid rgba(0, 102, 204, 1);
 }
 
 .input:focus {
+  border: 1px solid rgb(2, 80, 157);
 }
 
 .errorInput {
+  border: 1px solid red;
 }
 
 .button {
+  width: 78px;
+  height: 36px;
+  color: white;
+  background-color: rgba(0, 102, 204, 1);
+  border-radius: 3px;
 }
 
 .button:focus {
+  background-color: rgba(0, 102, 204, 1);
 }
 
 .button:active {
+  background-color: rgb(2, 57, 113);
 }
 
 .button:disabled {
+  background-color: rgba(0, 102, 204, 1);
 }
 
 .text {
+  color: white;
+  font-family: Montserrat;
+  font-weight: bold;
 }
 
 .greeting {
+  font-family: Montserrat;
+  font-weight: 500;
+  font-style: Medium;
+  font-size: 14px;
+  line-height: 100%;
+  color: black;
+  margin-top: 7px;
 }
