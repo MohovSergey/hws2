@@ -18,7 +18,13 @@ function Pages() {
             <Routes>
                 {/*роутинг будут писать студенты*/}
                 {/*в начале мы попадаем на страницу '/' и переходим сразу на страницу /pre-junior*/}
-                {/*<Route ...*/}
+                <Route path='/' element={<Navigate to={PATH.PRE_JUNIOR} replace/>}/>
+                <Route path={PATH.PRE_JUNIOR} element={<PreJunior/>}/>
+                <Route path={PATH.JUNIOR} element={<Junior/>}/>
+                <Route path={PATH.JUNIOR_PLUS} element={<JuniorPlus/>}/>
+
+                <Route path="/not-found-page" element={<Error404 />}/>
+                <Route path="/*" element={<Navigate to={"/not-found-page"} />}/>
 
                 {/*роуты для /pre-junior, /junior, /junior-plus*/}
                 {/*<Route ...*/}
