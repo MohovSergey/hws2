@@ -1,7 +1,10 @@
 .select {
+    width: 165;
+    height: 24px;
 }
 
 .select:focus {
+    
 }
 
 
